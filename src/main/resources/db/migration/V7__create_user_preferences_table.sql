@@ -1,0 +1,11 @@
+CREATE TABLE user_preferences (
+    id VARCHAR(36) PRIMARY KEY,
+    user_id VARCHAR(36) NOT NULL UNIQUE REFERENCES users(id),
+    theme VARCHAR(20) NOT NULL DEFAULT 'dark',
+    price_alert BOOLEAN NOT NULL DEFAULT TRUE,
+    trade_confirm BOOLEAN NOT NULL DEFAULT TRUE,
+    portfolio_report BOOLEAN NOT NULL DEFAULT FALSE,
+    market_news BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
